@@ -29,3 +29,4 @@ class Product(models.Model):
     # This must return a string
     return f" '{self.name}' "
 
+# 

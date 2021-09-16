@@ -4,3 +4,4 @@ from .order import Order
 from .product import Product
 from .orderItem import OrderItem
 from .review import Review
+from .shippingaddress import ShippingAddress

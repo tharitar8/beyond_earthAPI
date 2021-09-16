@@ -1,6 +1,6 @@
 from django.db import models
 # from django.contrib.auth import get_user_model
-from .user import User
+# from .user import User
 # Create your models here.
 from .order import Order
 

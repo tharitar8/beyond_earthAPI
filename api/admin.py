@@ -7,7 +7,7 @@ from .models.product import Product
 from .models.order import Order
 from .models.orderItem import OrderItem
 from .models.review import Review
-from .models.shippingAddress import ShippingAddress
+from .models.shippingaddress import ShippingAddress
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
     list_display = ['id', 'email', 'is_superuser', 'last_login']
