@@ -9,7 +9,7 @@ class Product(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   # product details
   name = models.CharField(max_length=200, blank=True)
-  # image = models.
+  image = models.ImageField(null=True, blank=True)
   company = models.CharField(max_length=200, blank=True)
   category = models.CharField(max_length=200, blank=True)
   description = models.TextField(null=True, blank=True)
@@ -29,4 +29,4 @@ class Product(models.Model):
     # This must return a string
     return f" '{self.name}' "
 
-# 
+#
