@@ -6,7 +6,8 @@ from .user import User
 class Product(models.Model):
   # define fields
   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  # user = models.ForeignKey(User, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
   # product details
   name = models.CharField(max_length=200, blank=True)
   image = models.ImageField(null=True, blank=True)

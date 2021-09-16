@@ -10,6 +10,12 @@ class ProductSerializer(serializers.ModelSerializer):
       model = Product
       fields = '__all__'
 
+
+class NoTokenViewsSerializer(serializers.ModelSerializer):
+  class Meta:
+      model = Product
+      fields = '__all__'
+
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mango
