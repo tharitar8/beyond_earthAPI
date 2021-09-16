@@ -2,7 +2,6 @@ from django.db import models
 from .product import Product
 # Create your models here.
 
-
 class Review(models.Model):
   #  want product can have multiple reviews
   product = models.ForeignKey(Product, on_delete=models.CASCADE)

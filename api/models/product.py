@@ -28,3 +28,4 @@ class Product(models.Model):
   def __str__(self):
     # This must return a string
     return f" '{self.name}' "
+
