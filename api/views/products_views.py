@@ -10,27 +10,29 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from ..serializers import ProductSerializer, NoTokenViewsSerializer
 from ..models.product import Product
 
-# Create your views here.
-class Products(generics.ListCreateAPIView):
-  def get(self, request):
-        """Index request"""
-        # Get all the products:
-        print(request)
-        products = Product.objects.all()
-        data = ProductSerializer(products, many=True).data
-        return Response(data)
+# # Create your views here.
+# class Products(generics.ListCreateAPIView):
+#   def get(self, request):
+#         """Index request"""
+#         # Get all the products:
+#         print(request)
+#         products = Product.objects.all()
+#         data = ProductSerializer(products, many=True).data
+#         return Response(data)
 
 
 class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = []
     permission_classes = []
     def get(self, request, pk):
-        """Show request"""
+        """Show one product request"""
         # Locate the product to show
         product = get_object_or_404(Product, pk=pk)
         # Want to show details of product only log in USER
-        if request.user != product.user:
-            raise PermissionDenied('Unauthorized, please log in')
+        data = ProductSerializer(product).data
+        return Response(data)
 
+#products homepage
 class NoTokenViews(APIView):
     authentication_classes = []
     permission_classes = []
