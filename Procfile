@@ -1,2 +1,2 @@
-web: gunicorn django_auth_template.wsgi.py
+web: gunicorn beyond_earth.wsgi.py
 release: python manage.py migrate
