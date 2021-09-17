@@ -9,6 +9,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 # from ..serializers import MangoSerializer
 from ..serializers import ProductSerializer, NoTokenViewsSerializer
 from ..models.product import Product
+
 # Create your views here.
 class Products(generics.ListCreateAPIView):
   def get(self, request):
@@ -20,6 +21,16 @@ class Products(generics.ListCreateAPIView):
         return Response(data)
 
 
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self, request, pk):
+        """Show request"""
+        # Locate the product to show
+        product = get_object_or_404(Product, pk=pk)
+        # Want to show details of product only log in USER
+        if request.user != product.user:
+            raise PermissionDenied('Unauthorized, please log in')
+
 class NoTokenViews(APIView):
     authentication_classes = []
     permission_classes = []
@@ -28,6 +39,8 @@ class NoTokenViews(APIView):
      p = Product.objects.all()
      data = NoTokenViewsSerializer(p, many=True).data
      return Response(data)
+
+
 
 # def getRoutes(request):
 #   routes = [
@@ -44,4 +57,4 @@ class NoTokenViews(APIView):
 #     '/api/products/<update>/<id>',
 #   ]
 
-#   return JsonResponse(routes, safe=False)
+#   return Response(routes, safe=False)

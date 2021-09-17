@@ -1,12 +1,13 @@
 from django.urls import path
-from .views.products_views import NoTokenViews
+from .views.products_views import NoTokenViews, ProductDetail
 from .views.mango_views import Mangos, MangoDetail
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
 
 urlpatterns = [
   	# Restful routing
-    # path('', getRoutes, name="routes"),
+
     path('products/', NoTokenViews.as_view(), name='products'),
+    path('products/<int:pk>', ProductDetail.as_view(), name='product'),
     path('mangos/', Mangos.as_view(), name='mangos'),
     path('mangos/<int:pk>/', MangoDetail.as_view(), name='mango_detail'),
     path('sign-up/', SignUp.as_view(), name='sign-up'),
