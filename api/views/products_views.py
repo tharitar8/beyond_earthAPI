@@ -22,7 +22,7 @@ class Products(generics.ListCreateAPIView):
 
 
 class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = []
     def get(self, request, pk):
         """Show request"""
         # Locate the product to show
@@ -36,25 +36,13 @@ class NoTokenViews(APIView):
     permission_classes = []
     def get(self, request):
      """Index request"""
-     p = Product.objects.all()
+     p = Product.objects.all()[:6]
      data = NoTokenViewsSerializer(p, many=True).data
      return Response(data)
 
 
-
-# def getRoutes(request):
-#   routes = [
-#     '/api/products/',
-#     '/api/products/create/',
-
-#     '/api/products/upload/',
-#     '/api/products/<id>/reviews/',
-
-#     '/api/products/top/',
-#     '/api/products/<id>',
-
-#     '/api/products/delete/<id>',
-#     '/api/products/<update>/<id>',
-#   ]
-
-#   return Response(routes, safe=False)
+#user create order add to cart
+#user see one page product detail
+#user see all products
+#user edit cart
+#user delete cart
