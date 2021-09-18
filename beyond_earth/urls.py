@@ -24,5 +24,4 @@ urlpatterns = [
     path('', include('api.urls')),
 ]
 
-# import show image can see from browser found this code from StackOverFlow
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

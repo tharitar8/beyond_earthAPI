@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import PermissionDenied
 from rest_framework import generics, status, serializers
 from django.shortcuts import get_object_or_404
@@ -9,17 +10,6 @@ from rest_framework.decorators import authentication_classes, permission_classes
 # from ..serializers import MangoSerializer
 from ..serializers import ProductSerializer, NoTokenViewsSerializer
 from ..models.product import Product
-
-# # Create your views here.
-# class Products(generics.ListCreateAPIView):
-#   def get(self, request):
-#         """Index request"""
-#         # Get all the products:
-#         print(request)
-#         products = Product.objects.all()
-#         data = ProductSerializer(products, many=True).data
-#         return Response(data)
-
 
 class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = []
@@ -41,10 +31,3 @@ class NoTokenViews(APIView):
      p = Product.objects.all()[:6]
      data = NoTokenViewsSerializer(p, many=True).data
      return Response(data)
-
-
-#user create order add to cart
-#user see one page product detail
-#user see all products
-#user edit cart
-#user delete cart

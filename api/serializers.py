@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models.mango import Mango
 from .models.user import User
 from .models.product import Product
 
@@ -16,10 +15,6 @@ class NoTokenViewsSerializer(serializers.ModelSerializer):
       model = Product
       fields = '__all__'
 
-class MangoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Mango
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
