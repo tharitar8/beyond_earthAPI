@@ -41,6 +41,7 @@ class AddToCartView(APIView):
     data = request.data
     # request.data['product']['owner'] = request.user.id
     orderItems = ProductSerializer(data=request.data['product'])
+    print(data)
     if orderItems and len(orderItems) == 0:
         return Response({'detail': 'No Order Items'}, status=status.HTTP_400_BAD_REQUEST)
     else:
