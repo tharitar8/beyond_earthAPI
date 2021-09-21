@@ -1,2 +1,2 @@
-web: gunicorn beyond_earth.wsgi.py
+web: gunicorn beyond_earth.wsgi
 release: python manage.py migrate
