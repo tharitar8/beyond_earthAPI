@@ -36,7 +36,7 @@ else:
   # to locate the database based on Heroku setup
   DB = dj_database_url.config()
   # Set debug to false
-  DEBUG = False
+  DEBUG = True
   # Only allow the `CLIENT_ORIGIN` for CORS
   CORS_ORIGIN_WHITELIST = [
     os.getenv('CLIENT_ORIGIN')
