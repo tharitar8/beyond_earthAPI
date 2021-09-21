@@ -36,6 +36,8 @@ class NoTokenViews(APIView):
      return Response(data)
 
 # update order
+# make a patch request 'add to cart button'
+# cart nav link show reqre
 class AddToCartView(APIView):
   permission_classes = (IsAuthenticated,)
   """Update request"""
@@ -48,6 +50,3 @@ class AddToCartView(APIView):
     # print(order.__dict__)
     serializer = OrderSerializer(order)
     return Response(serializer.data)
-
-
-

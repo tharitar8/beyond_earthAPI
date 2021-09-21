@@ -35,6 +35,7 @@ class OrderViews(APIView):
 class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated,)
 
+# cart nav link
     def get(self, request, pk):
         """Show request"""
         # Locate the order to show
@@ -46,7 +47,7 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
         # Run the data through the serializer so it's formatted
         data = OrderSerializer(order).data
         return Response({'order': data})
-
+# checkout button
     def delete(self, request, pk):
       """Delete request"""
       # Locate order to delete
