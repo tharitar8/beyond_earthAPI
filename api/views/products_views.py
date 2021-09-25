@@ -13,7 +13,7 @@ from ..serializers import ProductSerializer, NoTokenViewsSerializer, OrderSerial
 from ..models.product import Product
 from ..models.order import Order
 
-
+# showProductPage
 class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = []
     permission_classes = (AllowAny,)
@@ -25,7 +25,7 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
         data = ProductSerializer(product).data
         return Response(data)
 
-#products homepage
+#Show all Products on homepage with non sing-in user
 class NoTokenViews(APIView):
     authentication_classes = []
     permission_classes = (AllowAny,)
@@ -34,19 +34,3 @@ class NoTokenViews(APIView):
      p = Product.objects.all()
      data = NoTokenViewsSerializer(p, many=True).data
      return Response(data)
-
-# update order
-# make a patch request 'add to cart button'
-# cart nav link show reqre
-class AddToCartView(APIView):
-  permission_classes = (IsAuthenticated,)
-  """Update request"""
-  def patch(self, request, orderpk, productpk):
-    user = request.user
-    data = request.data
-    order = get_object_or_404(Order, pk=orderpk)
-    order.productlist.add(productpk)
-    order.save()
-    # print(order.__dict__)
-    serializer = OrderSerializer(order)
-    return Response(serializer.data)
