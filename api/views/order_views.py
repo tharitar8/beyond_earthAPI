@@ -19,15 +19,14 @@ class AddToCartView(APIView):
     data = request.data
     order = get_object_or_404(Order, pk=orderpk)
     order.productlist.add(productpk)
+    print('primary key', productpk)
     order.save()
-    print(order.__dict__)
     serializer = OrderSerializer(order)
     return Response(serializer.data)
 
 # see all orders
 class OrderViews(APIView):
   def get(self, request):
-    print('get')
     orders = Order.objects.all()
     data = OrderSerializer(orders, many=True).data
     return Response(data)
@@ -35,11 +34,10 @@ class OrderViews(APIView):
 # post request to create an order when SignIn
   def post(self, request):
     """Post Request"""
-    print('text', request.data)
+    # print('text', request.data)
     data = request.data.copy()
     data['owner'] = request.user.id
     orders = OrderSerializer(data=data)
-    print('orders', orders)
     if orders.is_valid():
       orders.save()
       return Response(orders.data)
@@ -75,4 +73,17 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
       # Only delete if the user owns the  order
       order.delete()
       return Response(status=status.HTTP_204_NO_CONTENT)
+
 # have to make patch route update when inside the cart
+
+    def patch(self, request, pk):
+      """update cart"""
+      order = get_object_or_404(Order, pk=pk)
+      if request.user != order.owner:
+          raise PermissionDenied('Unauthorized, not your order.')
+      request.data['order']['owner'] = request.user.id
+      data = OrderSerializer(order, data=request.data['order'], partial=True)
+      if data.is_valid():
+        data.save()
+        return Response(data.data, status=status.HTTP_204_NO_CONTENT)
+      return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)

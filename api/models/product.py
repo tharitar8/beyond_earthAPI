@@ -3,14 +3,6 @@ from django.contrib.auth import get_user_model
 from .user import User
 # Create your models here.
 
-
-# class Profile(models.Model):
-#     prouser = models.OneToOneField(User, on_delete=models.CASCADE)
-#     image = models.ImageField(upload_to="profile/")
-
-#     def __str__(self):
-#         return self.prouser.username
-
 class Product(models.Model):
   # define fields
   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
@@ -29,5 +21,3 @@ class Product(models.Model):
   def __str__(self):
     # This must return a string
     return f" '{self.name}' "
-
-
