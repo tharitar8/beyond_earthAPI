@@ -82,7 +82,9 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
       if request.user != order.owner:
           raise PermissionDenied('Unauthorized, not your order.')
       request.data['order']['owner'] = request.user.id
-      data = OrderSerializer(order, data=request.data['order'], partial=True)
+      data = OrderSerializer(order, data=request.data['order'],
+
+      partial=True)
       if data.is_valid():
         data.save()
         return Response(data.data, status=status.HTTP_204_NO_CONTENT)
