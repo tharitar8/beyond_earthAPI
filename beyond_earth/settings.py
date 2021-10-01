@@ -171,9 +171,16 @@ USE_TZ = False
 # optional package: http://whitenoise.evans.io/en/stable/django.html
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+    (BASE_DIR, 'static'),
+    (BASE_DIR, 'beyond_earth/build/static')
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Use the custom user model as the auth user for the admin view
 AUTH_USER_MODEL = 'api.User'
