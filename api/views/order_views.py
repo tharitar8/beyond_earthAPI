@@ -19,7 +19,6 @@ class AddToCartView(APIView):
     data = request.data
     order = get_object_or_404(Order, pk=orderpk)
     order.productlist.add(productpk)
-    print('primary key', productpk)
     order.save()
     serializer = OrderSerializer(order)
     return Response(serializer.data)
@@ -34,7 +33,6 @@ class OrderViews(APIView):
 # post request to create an order when SignIn
   def post(self, request):
     """Post Request"""
-    # print('text', request.data)
     data = request.data.copy()
     data['owner'] = request.user.id
     orders = OrderSerializer(data=data)
@@ -53,7 +51,6 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
         """Show request"""
         # Locate the order to show
         order = get_object_or_404(Order, pk=pk)
-        print(request, pk)
         # Only want to show owned order?
         if request.user != order.owner:
             raise PermissionDenied('Unauthorized, you do not own this')
