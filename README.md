@@ -6,7 +6,7 @@ and the transfer of money and data to complete the sales.
 The website created implements all of these options in which user can buy tickets to the moon and beyond. 
 The whole concept was to create a fictional website that would be focused in the future when space travel is possible. 
 Using an E-commerce website to reflect the buying of the most exclusive tickets
-One can get which would make it possible for anyone with enough money to be able to visit the moon and beyond. 
+one can get which would make it possible for anyone with enough money to be able to visit the moon and beyond. 
 
 ## :flying_saucer: Prerequisites
 - Python & Django installed
@@ -127,11 +127,11 @@ SECRET=secret_key
    <tr>
     <td> /order/:id</td>
     <td>PATCH</td>
-    <td>Update an order by remove each</td>
+    <td>Update an order by removing each Item</td>
   </tr>
   <tr>
     <td> /order/:id</td>
     <td>DELETE</td>
-    <td>Delete all in order</td>
+    <td>Delete all Items in order & create new orderId</td>
   </tr>
 </table>
