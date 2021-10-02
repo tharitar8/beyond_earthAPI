@@ -10,8 +10,8 @@ Also can get which will make it possible for anyone with enough money to be able
 
 ## :flying_saucer: Prerequisites
 - Python & Django installed
-- You can follow this guide line how to install Python for macOS <a href=https://www.python.org/downloads/macos/>Python for MacOS</a> or <a href=https://www.python.org/downloads/windows/>Python for Windows</a>
-- You can follow this guide line how to install Django <a href=https://docs.djangoproject.com/en/3.2/topics/install/>How to install Django</a> or "pip3 install django"
+- You can follow this guideline how to install Python for macOS <a href=https://www.python.org/downloads/macos/>Python for MacOS</a> or <a href=https://www.python.org/downloads/windows/>Python for Windows</a>
+- You can follow this guideline how to install Django <a href=https://docs.djangoproject.com/en/3.2/topics/install/>How to install Django</a> or "pip3 install django"
 - You can check python&django version on your computer by this command: 
 ```
 # Linux/macOS
