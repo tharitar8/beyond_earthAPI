@@ -1,13 +1,14 @@
-# Beyond Earth Ecommerce Website With Django + React
+<img src="https://i.imgur.com/T63cfTh.png" width="80" height="80" />
+<h1> :ringed_planet:   Beyond Earth Ecommerce Website With Django + React</h1>
 
-E-commerce is the buying and selling of good or services via the internet, 
+   E-commerce is the buying and selling of good or services via the internet, 
 and the transfer of money and data to complete the sales. 
 The website has created implements all of these options in which you can buy tickets to the moon and beyond. 
 The whole ideal was to create a fictional website that would be focused in the future when space travel is possible. 
 Using an E-commerce website to reflect the buying of the most exclusive tickets
 Also can get which will make it possible for anyone with enough money to be able to visit the moon and beyond. 
 
-## Prerequisites
+## :flying_saucer: Prerequisites
 - Python & Django installed
 - You can follow this guide line how to install Python for macOS <a href=https://www.python.org/downloads/macos/>Python for MacOS</a> or <a href=https://www.python.org/downloads/windows/>Python for Windows</a>
 - You can follow this guide line how to install Django <a href=https://docs.djangoproject.com/en/3.2/topics/install/>How to install Django</a> or "pip3 install django"
@@ -20,7 +21,7 @@ python3 -m django --version
 py -3 -m django --version
 ```
 
-## Download & Setup Instructions
+## :flying_saucer: Download & Setup Instructions
 - Clone project: git clone https://github.com/tharitar8/beyond_earthAPI
 - cd beyond_earthAPI
 - Setup the virtual environment: "pipenv install"
@@ -37,24 +38,24 @@ SECRET=secret_key
 ```
 - python manage.py runserver
 
-## Important Links
+## :flying_saucer: Important Links
 - <a href="https://tharitar8.github.io/beyond_earthClient/">Deployed Client </a>
 - <a href="https://github.com/tharitar8/beyond_earthClient">Client Repo </a>
 - <a href="https://earthpluto.herokuapp.com/"> Deployed API </a>
 
-## Technologies USED
+## :flying_saucer: Technologies USED
 - Python
 - Django
 - PostgresSQL
 
-## Unsolved Problem
+## :flying_saucer: Unsolved Problem
 - [ ] images for product
 
-## Wireframes
+## :flying_saucer: Wireframes
 
 <img src="https://i.imgur.com/EKZACOj.png" />
 
-## User Stories
+## :rocket: User Stories
 
 - [x] As an unregistered user, I would like to sign up with email and password.
 - [x] As a registered user, I would like to sign in with email and password.
@@ -63,11 +64,11 @@ SECRET=secret_key
 - [x] As an unregistered user, I would like to see all of the products.
 - [x] As a signed in user, I would like to add and remove products from a shopping cart.
 
-## ERD
+## :rocket: ERD
 
 <img src="https://i.imgur.com/lSrYWeV.jpg" />
 
-## USER PATHS & METHODS
+## :rocket: USER PATHS & METHODS
 <table>
   <tr>
     <th>Endpoint</th>
@@ -91,7 +92,7 @@ SECRET=secret_key
   </tr>
 </table>
 
-## WEBSITE PATHS & METHODS
+## :rocket: WEBSITE PATHS & METHODS
 <table>
   <tr>
     <th>Endpoint</th>
